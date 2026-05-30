@@ -37,7 +37,10 @@ public class ValuableFoundFeature extends Feature {
             Identifier.fromNamespaceAndPath("wynntils", "misc.mythic-found-classic");
     private static final Identifier MYTHIC_FOUND_MODERN_ID =
             Identifier.fromNamespaceAndPath("wynntils", "misc.mythic-found-modern");
-    private static final Identifier CACHE_FOUND_ID = Identifier.fromNamespaceAndPath("wynntils", "misc.cache-found");
+    private static final Identifier MYTHIC_FOUND_COMEDY_ID =
+            Identifier.fromNamespaceAndPath("wynntils", "misc.mythic-found-comedy");
+    private static final Identifier CACHE_FOUND_CLASSIC_ID = Identifier.fromNamespaceAndPath("wynntils", "misc.cache-found");
+    private static final Identifier CACHE_FOUND_COMEDY_ID = Identifier.fromNamespaceAndPath("wynntils", "misc.cache-found-comedy");
 
     @Persisted
     private final Config<ValuableFoundSound> chestSound = new Config<>(ValuableFoundSound.MODERN);
@@ -52,7 +55,7 @@ public class ValuableFoundFeature extends Feature {
     private final Config<ValuableFoundSound> tomeFoundSound = new Config<>(ValuableFoundSound.NONE);
 
     @Persisted
-    private final Config<ValuableFoundSound> cacheFoundSound = new Config<>(ValuableFoundSound.CACHE);
+    private final Config<ValuableFoundSound> cacheFoundSound = new Config<>(ValuableFoundSound.CACHE_CLASSIC);
 
     @Persisted
     private final Config<ValuableFoundSound> emeraldPouchSound = new Config<>(ValuableFoundSound.NONE);
@@ -317,7 +320,9 @@ public class ValuableFoundFeature extends Feature {
     private enum ValuableFoundSound {
         MODERN(SoundEvent.createVariableRangeEvent(MYTHIC_FOUND_MODERN_ID)),
         CLASSIC(SoundEvent.createVariableRangeEvent(MYTHIC_FOUND_CLASSIC_ID)),
-        CACHE(SoundEvent.createVariableRangeEvent(CACHE_FOUND_ID)),
+        COMEDY(SoundEvent.createVariableRangeEvent(MYTHIC_FOUND_COMEDY_ID)),
+        CACHE_CLASSIC(SoundEvent.createVariableRangeEvent(CACHE_FOUND_CLASSIC_ID)),
+        CACHE_COMEDY(SoundEvent.createVariableRangeEvent(CACHE_FOUND_COMEDY_ID)),
         NONE(null);
 
         private final SoundEvent soundEvent;

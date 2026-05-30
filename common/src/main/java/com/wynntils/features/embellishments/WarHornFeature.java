@@ -10,6 +10,7 @@ import com.wynntils.core.persisted.Persisted;
 import com.wynntils.core.persisted.config.Category;
 import com.wynntils.core.persisted.config.Config;
 import com.wynntils.core.persisted.config.ConfigCategory;
+import com.wynntils.features.ValuableFoundFeature;
 import com.wynntils.models.territories.event.GuildWarQueuedEvent;
 import com.wynntils.utils.mc.McUtils;
 import net.minecraft.resources.Identifier;
@@ -19,7 +20,10 @@ import net.neoforged.bus.api.SubscribeEvent;
 @ConfigCategory(Category.EMBELLISHMENTS)
 public class WarHornFeature extends Feature {
     private static final Identifier WAR_HORN_ID = Identifier.fromNamespaceAndPath("wynntils", "war.horn");
-    private static final SoundEvent WAR_HORN_SOUND = SoundEvent.createVariableRangeEvent(WAR_HORN_ID);
+    private static final Identifier WAR_HORN_COMEDY_ID = Identifier.fromNamespaceAndPath("wynntils", "war.horn-comedy");
+
+    @Persisted
+    private final Config<WarHornSound> soundType = new Config<>(WarHornSound.CLASSIC);
 
     @Persisted
     private final Config<Float> soundVolume = new Config<>(1.0f);
@@ -33,6 +37,21 @@ public class WarHornFeature extends Feature {
 
     @SubscribeEvent
     public void onWarQueued(GuildWarQueuedEvent event) {
-        McUtils.playSoundAmbient(WAR_HORN_SOUND, soundVolume.get(), soundPitch.get());
+        McUtils.playSoundAmbient(soundType.get().getSoundEvent(), soundVolume.get(), soundPitch.get());
+    }
+
+    private enum WarHornSound {
+        CLASSIC(SoundEvent.createVariableRangeEvent(WAR_HORN_ID)),
+        COMEDY(SoundEvent.createVariableRangeEvent(WAR_HORN_COMEDY_ID));
+
+        private final SoundEvent soundEvent;
+
+        WarHornSound(SoundEvent soundEvent) {
+            this.soundEvent = soundEvent;
+        }
+
+        public SoundEvent getSoundEvent() {
+            return soundEvent;
+        }
     }
 }
