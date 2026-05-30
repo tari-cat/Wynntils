@@ -4,6 +4,11 @@
       "wynntils:cache-found"
     ]
   },
+  "misc.cache-found-comedy": {
+    "sounds": [
+      "wynntils:comedy-cache-found"
+    ]
+  },
   "misc.mythic-found-classic": {
     "sounds": [
       "wynntils:mythic-found-classic"
@@ -12,6 +17,11 @@
   "misc.mythic-found-modern": {
     "sounds": [
       "wynntils:mythic-found-modern"
+    ]
+  },
+  "misc.mythic-found-comedy": {
+    "sounds": [
+      "wynntils:comedy-mythic-found"
     ]
   },
   "mount.whistle": {
@@ -40,6 +50,11 @@
   "war.horn": {
     "sounds": [
       "wynntils:war-horn"
+    ]
+  },
+  "war.horn-comedy": {
+    "sounds": [
+      "wynntils:comedy-war-horn"
     ]
   },
   "wybel.purr": {

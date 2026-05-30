@@ -4081,4 +4081,6 @@
   "feature.wynntils.comedy.powderSpecialChargeSound.description": "Play sound effects when powder specials charge?",
   "feature.wynntils.comedy.powderSpecialActivateSound.name": "Powder Special Activate Sound",
   "feature.wynntils.comedy.powderSpecialActivateSound.description": "Play sound effects when powder specials activate?",
+  "feature.wynntils.warHorn.soundType.name": "War Horn Sound",
+  "feature.wynntils.warHorn.soundType.description": "What sound effect should play?"
 }
