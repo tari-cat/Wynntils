@@ -4,6 +4,7 @@
  */
 package com.wynntils.models.characterstats;
 
+import com.wynntils.core.WynntilsMod;
 import com.wynntils.core.components.Handlers;
 import com.wynntils.core.components.Model;
 import com.wynntils.core.components.Models;
@@ -35,6 +36,7 @@ import com.wynntils.models.characterstats.actionbar.segments.ManaTextSegment;
 import com.wynntils.models.characterstats.actionbar.segments.MeterBarSegment;
 import com.wynntils.models.characterstats.actionbar.segments.PowderSpecialSegment;
 import com.wynntils.models.characterstats.actionbar.segments.ProfessionExperienceSegment;
+import com.wynntils.models.characterstats.event.PowderSpecialEvent;
 import com.wynntils.models.characterstats.type.MeterBarInfo;
 import com.wynntils.models.characterstats.type.PowderSpecialInfo;
 import com.wynntils.models.gear.type.GearInfo;
@@ -272,7 +274,13 @@ public final class CharacterStatsModel extends Model {
     }
 
     private void updatePowderSpecial(PowderSpecialSegment segment) {
+        PowderSpecialInfo current = powderSpecialInfo;
+
         powderSpecialInfo = segment.getPowderSpecialInfo();
+
+        if (!powderSpecialInfo.equals(current)) {
+            WynntilsMod.postEvent(new PowderSpecialEvent(powderSpecialInfo));
+        }
     }
 
     private void updateCombatExperience(CombatExperienceSegment combatExperienceSegment) {
