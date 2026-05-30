@@ -58,11 +58,7 @@ import com.wynntils.features.debug.LogItemInfoFeature;
 import com.wynntils.features.debug.MappingProgressFeature;
 import com.wynntils.features.debug.PacketDebuggerFeature;
 import com.wynntils.features.debug.PlayerInfoFooterDebuggerFeature;
-import com.wynntils.features.debug.TextureRecorderFeature;
-import com.wynntils.features.embellishments.ApplyWeaponSkinFeature;
-import com.wynntils.features.embellishments.WarHornFeature;
-import com.wynntils.features.embellishments.WybelSoundFeature;
-import com.wynntils.features.embellishments.WynntilsCosmeticsFeature;
+import com.wynntils.features.embellishments.*;
 import com.wynntils.features.inventory.ContainerSearchFeature;
 import com.wynntils.features.inventory.DisableRecipeBookFeature;
 import com.wynntils.features.inventory.DurabilityOverlayFeature;
@@ -292,6 +288,7 @@ public final class FeatureManager extends Manager {
         registerFeature(new WarHornFeature());
         registerFeature(new WybelSoundFeature());
         registerFeature(new WynntilsCosmeticsFeature());
+        registerFeature(new ComedyFeature());
         // endregion
 
         // region inventory

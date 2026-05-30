@@ -1828,7 +1828,7 @@
   "feature.wynntils.wynncraftButton.serverRegionOverride.name": "Server Region Override",
   "feature.wynntils.wynncraftButton.serverType.description": "Which server should the button and auto-connect join?",
   "feature.wynntils.wynncraftButton.serverType.name": "Server Type",
-  "feature.wynntils.wynncraftButton.update": "Wynntils update available!",
+  "feature.wynntils.wynncraftButton.update": "maybe don't update if you're on this version",
   "feature.wynntils.wynncraftPauseScreen.classSelectionButton.name": "Class Selection",
   "feature.wynntils.wynncraftPauseScreen.description": "Adds a custom pause screen.",
   "feature.wynntils.wynncraftPauseScreen.hubButton.name": "Back to Hub",
@@ -4072,5 +4072,13 @@
   "wynntils.keybind.toggleFavorite": "Favorite/Unfavorite Item",
   "wynntils.keybind.toggleSilencer": "Toggle Silencer",
   "wynntils.keybind.toggleStopwatch": "Toggle Stopwatch",
-  "wynntils.keybind.viewPlayer": "View Player"
+  "wynntils.keybind.viewPlayer": "View Player",
+  "feature.wynntils.comedy.name": "Comedy",
+  "feature.wynntils.comedy.description": ":3",
+  "feature.wynntils.comedy.deathSound.name": "Death Sound",
+  "feature.wynntils.comedy.deathSound.description": "Play sound effects on death?",
+  "feature.wynntils.comedy.powderSpecialChargeSound.name": "Powder Special Charge Sound",
+  "feature.wynntils.comedy.powderSpecialChargeSound.description": "Play sound effects when powder specials charge?",
+  "feature.wynntils.comedy.powderSpecialActivateSound.name": "Powder Special Activate Sound",
+  "feature.wynntils.comedy.powderSpecialActivateSound.description": "Play sound effects when powder specials activate?",
 }
