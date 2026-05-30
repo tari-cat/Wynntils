@@ -53,5 +53,48 @@
       "wynntils:wybel-squeak",
       "wynntils:wybel-squeak-2"
     ]
+  },
+  "comedy.death": {
+	"sounds": [
+	  "wynntils:death-1",
+      "wynntils:death-2",
+      "wynntils:death-3",
+      "wynntils:death-4",
+      "wynntils:death-5",
+      "wynntils:death-6",
+      "wynntils:death-7"
+	]
+  },
+  "comedy.powder_special_charge": {
+    "sounds": [
+      {
+        "name": "wynntils:powder-special-charge-1",
+        "weight": 96
+      },
+      {
+        "name": "wynntils:powder-special-charge-2",
+        "weight": 2
+      },
+      {
+        "name": "wynntils:powder-special-charge-3",
+        "weight": 2
+      }
+    ]
+  },
+  "comedy.powder_special_activate": {
+    "sounds": [
+      {
+        "name": "wynntils:powder-special-activate-1",
+        "weight": 80
+      },
+      {
+        "name": "wynntils:powder-special-activate-2",
+        "weight": 10
+      },
+      {
+        "name": "wynntils:powder-special-activate-3",
+        "weight": 10
+      }
+    ]
   }
 }
