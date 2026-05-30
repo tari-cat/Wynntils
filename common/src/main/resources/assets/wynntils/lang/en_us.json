@@ -4082,5 +4082,9 @@
   "feature.wynntils.comedy.powderSpecialActivateSound.name": "Powder Special Activate Sound",
   "feature.wynntils.comedy.powderSpecialActivateSound.description": "Play sound effects when powder specials activate?",
   "feature.wynntils.warHorn.soundType.name": "War Horn Sound",
-  "feature.wynntils.warHorn.soundType.description": "What sound effect should play?"
+  "feature.wynntils.warHorn.soundType.description": "What sound effect should play?",
+  "feature.wynntils.wynntilsContentBook.raidBehaviorConfig.name": "Disable Content Book in Raids",
+  "feature.wynntils.wynntilsContentBook.raidBehaviorConfig.description": "Disable opening the Content Book (& Character Info) from your hotbar during Raids?",
+  "feature.wynntils.wynntilsContentBook.worldEventBehaviorConfig.name": "Disable Content Book in World Events",
+  "feature.wynntils.wynntilsContentBook.worldEventBehaviorConfig.description": "Disable opening the Content Book (& Character Info) from your hotbar during World Events?"
 }

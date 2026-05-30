@@ -46,6 +46,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 @ConfigCategory(Category.UI)
 public class WynntilsContentBookFeature extends Feature {
     private static final StyledText CONTENT_BOOK_NAME = StyledText.fromString("§dContent Book");
+    private static final StyledText CHARACTER_INFO_NAME = StyledText.fromString("§bCharacter Info");
 
     @RegisterKeyBind
     private final KeyBind openContentBook = KeyBindDefinition.OPEN_CONTENT_BOOK.create(
@@ -101,6 +102,12 @@ public class WynntilsContentBookFeature extends Feature {
 
     @Persisted
     private final Config<ShiftBehavior> shiftBehaviorConfig = new Config<>(ShiftBehavior.DISABLED_IF_SHIFT_HELD);
+
+    @Persisted
+    private final Config<Boolean> raidBehaviorConfig = new Config<>(true);
+
+    @Persisted
+    private final Config<Boolean> worldEventBehaviorConfig = new Config<>(true);
 
     @Persisted
     private final Config<Boolean> openWynntilsMenuInstead = new Config<>(false);
@@ -168,11 +175,18 @@ public class WynntilsContentBookFeature extends Feature {
     private void handleClick(ICancellableEvent cancellableEvent) {
         if (Models.WorldState.inCharacterWardrobe()) return;
 
+        ItemStack itemInHand = McUtils.player().getItemInHand(InteractionHand.MAIN_HAND);
+        boolean holdingBook = StyledText.fromComponent(itemInHand.getHoverName()).equals(CONTENT_BOOK_NAME);
+        boolean holdingCompass = StyledText.fromComponent(itemInHand.getHoverName()).equals(CHARACTER_INFO_NAME);
         shiftClickedBookItem = McUtils.player().isShiftKeyDown();
 
-        ItemStack itemInHand = McUtils.player().getItemInHand(InteractionHand.MAIN_HAND);
+        if (((raidBehaviorConfig.get() && Models.Raid.getCurrentRaid() != null) || (worldEventBehaviorConfig.get() && Models.WorldEvent.getCurrentWorldEvent() != null)) && (holdingCompass || holdingBook)) {
+            cancellableEvent.setCanceled(true);
+            return;
+        }
+
         if (openWynntilsMenuInstead.get()
-                && StyledText.fromComponent(itemInHand.getHoverName()).equals(CONTENT_BOOK_NAME)) {
+                && holdingBook) {
             cancellableEvent.setCanceled(true);
             WynntilsMenuScreenBase.openBook(WynntilsMenuScreen.create());
         }
