@@ -39,8 +39,10 @@ public class ValuableFoundFeature extends Feature {
             Identifier.fromNamespaceAndPath("wynntils", "misc.mythic-found-modern");
     private static final Identifier MYTHIC_FOUND_COMEDY_ID =
             Identifier.fromNamespaceAndPath("wynntils", "misc.mythic-found-comedy");
-    private static final Identifier CACHE_FOUND_CLASSIC_ID = Identifier.fromNamespaceAndPath("wynntils", "misc.cache-found");
-    private static final Identifier CACHE_FOUND_COMEDY_ID = Identifier.fromNamespaceAndPath("wynntils", "misc.cache-found-comedy");
+    private static final Identifier CACHE_FOUND_CLASSIC_ID =
+            Identifier.fromNamespaceAndPath("wynntils", "misc.cache-found");
+    private static final Identifier CACHE_FOUND_COMEDY_ID =
+            Identifier.fromNamespaceAndPath("wynntils", "misc.cache-found-comedy");
 
     @Persisted
     private final Config<ValuableFoundSound> chestSound = new Config<>(ValuableFoundSound.MODERN);

@@ -1,5 +1,5 @@
 /*
- * Copyright © Wynntils 2025.
+ * Copyright © Wynntils 2025-2026.
  * This file is released under LGPLv3. See LICENSE for full license details.
  */
 package com.wynntils.models.raid.raids;
@@ -12,11 +12,21 @@ import java.util.TreeMap;
 public class OrphionsNexusOfLightRaid extends RaidKind {
     private static final String RAID_NAME = "Orphion's Nexus of Light";
     private static final String ABBREVIATION = "NOL";
+    private static final String TECHNICALLY_CORRECT_ABBREVIATION = "ONL";
     private static final CustomColor RAID_COLOR = CustomColor.fromHexString("#ffaa00ff");
     private static final StyledText ENTRY_TITLE = StyledText.fromString("§f§kOrphion's Nexus of §lLight");
 
     public OrphionsNexusOfLightRaid() {
-        super(RAID_NAME, ABBREVIATION, RAID_COLOR, ENTRY_TITLE, buildRoomMap(), 3, 2, buildMajorIdMap());
+        super(
+                RAID_NAME,
+                ABBREVIATION,
+                TECHNICALLY_CORRECT_ABBREVIATION,
+                RAID_COLOR,
+                ENTRY_TITLE,
+                buildRoomMap(),
+                3,
+                2,
+                buildMajorIdMap());
     }
 
     private static Map<Integer, Map<String, String>> buildRoomMap() {

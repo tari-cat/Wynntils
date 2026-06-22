@@ -12,11 +12,19 @@ import java.util.TreeMap;
 public class TheWartornPalaceRaid extends RaidKind {
     private static final String RAID_NAME = "The Wartorn Palace";
     private static final String ABBREVIATION = "WTP";
+    private static final String TECHNICALLY_CORRECT_ABBREVIATION = "WP";
     private static final CustomColor RAID_COLOR = CustomColor.fromHexString("#FF5555FF");
     private static final StyledText ENTRY_TITLE = StyledText.fromString("§#00F010FFThe Wartorn Palace");
 
     public TheWartornPalaceRaid() {
-        super(RAID_NAME, ABBREVIATION, RAID_COLOR, ENTRY_TITLE, buildRoomMap(), buildMajorIdMap());
+        super(
+                RAID_NAME,
+                ABBREVIATION,
+                TECHNICALLY_CORRECT_ABBREVIATION,
+                RAID_COLOR,
+                ENTRY_TITLE,
+                buildRoomMap(),
+                buildMajorIdMap());
     }
 
     private static Map<Integer, Map<String, String>> buildRoomMap() {

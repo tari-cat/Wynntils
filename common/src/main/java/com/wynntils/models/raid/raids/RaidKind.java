@@ -1,10 +1,12 @@
 /*
- * Copyright © Wynntils 2025.
+ * Copyright © Wynntils 2025-2026.
  * This file is released under LGPLv3. See LICENSE for full license details.
  */
 package com.wynntils.models.raid.raids;
 
+import com.wynntils.core.components.Managers;
 import com.wynntils.core.text.StyledText;
+import com.wynntils.features.embellishments.ComedyFeature;
 import com.wynntils.utils.colors.CustomColor;
 import java.util.Collections;
 import java.util.Map;
@@ -12,6 +14,7 @@ import java.util.Map;
 public abstract class RaidKind {
     private final String raidName;
     private final String abbreviation;
+    private final String technicallyCorrectAbbreviation;
     private final CustomColor raidColor;
     private final StyledText entryTitle;
     private final Map<Integer, Map<String, String>> challengeNames;
@@ -22,6 +25,7 @@ public abstract class RaidKind {
     protected RaidKind(
             String raidName,
             String abbreviation,
+            String technicallyCorrectAbbreviation,
             CustomColor raidColor,
             StyledText entryTitle,
             Map<Integer, Map<String, String>> challengeNames,
@@ -30,6 +34,7 @@ public abstract class RaidKind {
             Map<String, Map<Integer, String>> majorIdBuffs) {
         this.raidName = raidName;
         this.abbreviation = abbreviation;
+        this.technicallyCorrectAbbreviation = technicallyCorrectAbbreviation;
         this.raidColor = raidColor;
         this.entryTitle = entryTitle;
         this.challengeNames = Collections.unmodifiableMap(challengeNames);
@@ -41,19 +46,43 @@ public abstract class RaidKind {
     protected RaidKind(
             String raidName,
             String abbreviation,
+            String technicallyCorrectAbbreviation,
             CustomColor raidColor,
             StyledText entryTitle,
             Map<Integer, Map<String, String>> challengeNames,
             Map<String, Map<Integer, String>> majorIdBuffs) {
-        this(raidName, abbreviation, raidColor, entryTitle, challengeNames, 3, 1, majorIdBuffs);
+        this(
+                raidName,
+                abbreviation,
+                technicallyCorrectAbbreviation,
+                raidColor,
+                entryTitle,
+                challengeNames,
+                3,
+                1,
+                majorIdBuffs);
     }
 
     public String getRaidName() {
         return raidName;
     }
 
+    public String getEffectiveAbbreviation() {
+        ComedyFeature comedyFeature = Managers.Feature.getFeatureInstance(ComedyFeature.class);
+
+        if (comedyFeature.isStotchModeEnabled()) {
+            return getTechnicallyCorrectAbbreviation();
+        }
+
+        return getAbbreviation();
+    }
+
     public String getAbbreviation() {
         return abbreviation;
+    }
+
+    public String getTechnicallyCorrectAbbreviation() {
+        return technicallyCorrectAbbreviation;
     }
 
     public CustomColor getRaidColor() {
