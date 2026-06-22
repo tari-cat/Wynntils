@@ -1,5 +1,5 @@
 /*
- * Copyright © Wynntils 2025.
+ * Copyright © Wynntils 2025-2026.
  * This file is released under LGPLv3. See LICENSE for full license details.
  */
 package com.wynntils.models.raid.raids;
@@ -12,11 +12,19 @@ import java.util.TreeMap;
 public class TheNamelessAnomalyRaid extends RaidKind {
     private static final String RAID_NAME = "The Nameless Anomaly";
     private static final String ABBREVIATION = "TNA";
+    private static final String TECHNICALLY_CORRECT_ABBREVIATION = "NA";
     private static final CustomColor RAID_COLOR = CustomColor.fromHexString("#5555ffff");
     private static final StyledText ENTRY_TITLE = StyledText.fromString("§9§lThe §1§k§lNameless§9§l Anomaly");
 
     public TheNamelessAnomalyRaid() {
-        super(RAID_NAME, ABBREVIATION, RAID_COLOR, ENTRY_TITLE, buildRoomMap(), buildMajorIdMap());
+        super(
+                RAID_NAME,
+                ABBREVIATION,
+                TECHNICALLY_CORRECT_ABBREVIATION,
+                RAID_COLOR,
+                ENTRY_TITLE,
+                buildRoomMap(),
+                buildMajorIdMap());
     }
 
     private static Map<Integer, Map<String, String>> buildRoomMap() {

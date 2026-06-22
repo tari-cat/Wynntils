@@ -1,11 +1,10 @@
 /*
- * Copyright © Wynntils 2024.
+ * Copyright © Wynntils 2024-2026.
  * This file is released under LGPLv3. See LICENSE for full license details.
  */
 package com.wynntils.models.characterstats.type;
 
 import com.wynntils.models.elements.type.Powder;
-
 import java.util.Objects;
 
 public record PowderSpecialInfo(float charge, Powder powder) {
