@@ -176,17 +176,20 @@ public class WynntilsContentBookFeature extends Feature {
         if (Models.WorldState.inCharacterWardrobe()) return;
 
         ItemStack itemInHand = McUtils.player().getItemInHand(InteractionHand.MAIN_HAND);
-        boolean holdingBook = StyledText.fromComponent(itemInHand.getHoverName()).equals(CONTENT_BOOK_NAME);
-        boolean holdingCompass = StyledText.fromComponent(itemInHand.getHoverName()).equals(CHARACTER_INFO_NAME);
+        boolean holdingBook =
+                StyledText.fromComponent(itemInHand.getHoverName()).equals(CONTENT_BOOK_NAME);
+        boolean holdingCompass =
+                StyledText.fromComponent(itemInHand.getHoverName()).equals(CHARACTER_INFO_NAME);
         shiftClickedBookItem = McUtils.player().isShiftKeyDown();
 
-        if (((raidBehaviorConfig.get() && Models.Raid.getCurrentRaid() != null) || (worldEventBehaviorConfig.get() && Models.WorldEvent.getCurrentWorldEvent() != null)) && (holdingCompass || holdingBook)) {
+        if (((raidBehaviorConfig.get() && Models.Raid.getCurrentRaid() != null)
+                        || (worldEventBehaviorConfig.get() && Models.WorldEvent.getCurrentWorldEvent() != null))
+                && (holdingCompass || holdingBook)) {
             cancellableEvent.setCanceled(true);
             return;
         }
 
-        if (openWynntilsMenuInstead.get()
-                && holdingBook) {
+        if (openWynntilsMenuInstead.get() && holdingBook) {
             cancellableEvent.setCanceled(true);
             WynntilsMenuScreenBase.openBook(WynntilsMenuScreen.create());
         }

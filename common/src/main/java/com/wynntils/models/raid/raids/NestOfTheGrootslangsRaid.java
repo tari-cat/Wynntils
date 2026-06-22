@@ -1,5 +1,5 @@
 /*
- * Copyright © Wynntils 2025.
+ * Copyright © Wynntils 2025-2026.
  * This file is released under LGPLv3. See LICENSE for full license details.
  */
 package com.wynntils.models.raid.raids;
@@ -12,11 +12,19 @@ import java.util.TreeMap;
 public class NestOfTheGrootslangsRaid extends RaidKind {
     private static final String RAID_NAME = "Nest of the Grootslangs";
     private static final String ABBREVIATION = "NOG";
+    private static final String TECHNICALLY_CORRECT_ABBREVIATION = "NG";
     private static final CustomColor RAID_COLOR = CustomColor.fromHexString("#00aa00ff");
     private static final StyledText ENTRY_TITLE = StyledText.fromString("§2Nest of The Grootslangs");
 
     public NestOfTheGrootslangsRaid() {
-        super(RAID_NAME, ABBREVIATION, RAID_COLOR, ENTRY_TITLE, buildRoomMap(), buildMajorIdMap());
+        super(
+                RAID_NAME,
+                ABBREVIATION,
+                TECHNICALLY_CORRECT_ABBREVIATION,
+                RAID_COLOR,
+                ENTRY_TITLE,
+                buildRoomMap(),
+                buildMajorIdMap());
     }
 
     private static Map<Integer, Map<String, String>> buildRoomMap() {
