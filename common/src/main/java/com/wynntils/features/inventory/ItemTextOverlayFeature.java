@@ -326,7 +326,8 @@ public class ItemTextOverlayFeature extends Feature {
                     .withCustomColor(item.getRaidKind().getRaidColor())
                     .withTextShadow(crafterBagShadow.get());
 
-            return new TextOverlay(new TextRenderTask(item.getRaidKind().getAbbreviation(), style), -1, 1, 0.75f);
+            return new TextOverlay(
+                    new TextRenderTask(item.getRaidKind().getEffectiveAbbreviation(), style), -1, 1, 0.75f);
         }
 
         @Override
