@@ -86,7 +86,7 @@ public final class SkillPointModel extends Model {
      * Saves the current equipped gear and provided skill points.
      */
     public void saveSkillPointsAndItems(String name, int[] skillPoints) {
-        EncodingSettings encodingSettings = new EncodingSettings(true, true);
+        EncodingSettings encodingSettings = new EncodingSettings(true, true, true);
         List<ItemStack> equippedItems = Models.Inventory.getEquippedItems();
 
         SavableGear weaponSavableGear = null;

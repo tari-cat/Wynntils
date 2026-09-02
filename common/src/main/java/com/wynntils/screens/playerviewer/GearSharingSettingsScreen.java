@@ -160,6 +160,18 @@ public class GearSharingSettingsScreen extends WynntilsScreen {
 
         this.addRenderableWidget(new WynntilsCheckbox(
                 offsetX + Texture.PLAYER_VIEWER_BACKGROUND.width() + 1,
+                offsetY - 7,
+                16,
+                Component.translatable("screens.wynntils.gearSharingSettings.shareCraftedRolls"),
+                Services.Hades.getGearShareOptions().shareCraftedRolls(),
+                150,
+                (checkbox, bl) -> {
+                    Services.Hades.getGearShareOptions().setShareCraftedRolls(bl);
+                },
+                List.of(Component.translatable("screens.wynntils.gearSharingSettings.shareCraftedRollsTooltip"))));
+
+        this.addRenderableWidget(new WynntilsCheckbox(
+                offsetX + Texture.PLAYER_VIEWER_BACKGROUND.width() + 1,
                 offsetY + Texture.PLAYER_VIEWER_BACKGROUND.height() - 25,
                 16,
                 Component.translatable("screens.wynntils.gearSharingSettings.shareItemNames"),

@@ -320,7 +320,7 @@ public class ChatItemFeature extends Feature {
     private void makeChatPrompt(WynnItem wynnItem) {
         // Do NOT share the name of the item encoded, as we share the item name in the chat message
         EncodingSettings encodingSettings =
-                new EncodingSettings(Models.ItemEncoding.extendedIdentificationEncoding.get(), false);
+                new EncodingSettings(Models.ItemEncoding.extendedIdentificationEncoding.get(), false, false);
         ErrorOr<EncodedByteBuffer> errorOrEncodedByteBuffer =
                 Models.ItemEncoding.encodeItem(wynnItem, encodingSettings);
         if (errorOrEncodedByteBuffer.hasError()) {

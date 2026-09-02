@@ -401,7 +401,7 @@ public final class CharacterModel extends Model {
     }
 
     public SavableTomeSet getCurrentTomeSet() {
-        EncodingSettings encodingSettings = new EncodingSettings(true, true);
+        EncodingSettings encodingSettings = new EncodingSettings(true, true, true);
         List<SavableTome> tomes = new ArrayList<>();
 
         for (TomeItem tome : equippedTomes) {

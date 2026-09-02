@@ -69,7 +69,7 @@ public final class HadesService extends Service {
     private static final int TICKS_PER_UPDATE = 2;
     private static final int MS_PER_PING = 1000;
 
-    private static final EncodingSettings HADES_ENCODING_SETTINGS = new EncodingSettings(false, false);
+    private static final EncodingSettings HADES_ENCODING_SETTINGS = new EncodingSettings(false, false, false);
 
     @Persisted
     public final Config<Boolean> connectToHades = new Config<>(true);
