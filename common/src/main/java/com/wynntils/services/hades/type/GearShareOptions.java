@@ -14,6 +14,7 @@ public class GearShareOptions {
     private Map<InventoryAccessory, Boolean> accessoryShare = new TreeMap<>();
     private boolean shareHeldItem = true;
     private boolean shareCraftedItems = true;
+    private boolean shareCraftedRolls = true;
     private boolean shareCraftedNames = true;
 
     public boolean shouldShare() {
@@ -52,6 +53,14 @@ public class GearShareOptions {
 
     public void setShareCraftedItems(boolean shareCraftedItems) {
         this.shareCraftedItems = shareCraftedItems;
+    }
+
+    public boolean shareCraftedRolls() {
+        return shareCraftedRolls;
+    }
+
+    public void setShareCraftedRolls(boolean shareCraftedRolls) {
+        this.shareCraftedRolls = shareCraftedRolls;
     }
 
     public boolean shareCraftedNames() {

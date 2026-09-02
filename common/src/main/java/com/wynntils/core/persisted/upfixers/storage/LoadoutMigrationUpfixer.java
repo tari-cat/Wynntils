@@ -277,7 +277,7 @@ public class LoadoutMigrationUpfixer implements Upfixer {
         GearInstance gearInstance = new GearInstance(stats, List.of(), 0, Optional.empty());
         GearItem defaultGearItem = new GearItem(gearInfo, gearInstance);
 
-        EncodingSettings encodingSettings = new EncodingSettings(true, true);
+        EncodingSettings encodingSettings = new EncodingSettings(true, true, true);
         ErrorOr<EncodedByteBuffer> errorOrEncoded = Models.ItemEncoding.encodeItem(defaultGearItem, encodingSettings);
         if (errorOrEncoded.hasError()) {
             WynntilsMod.warn("Upfixer: failed to encode " + gearInfo.name() + ": " + errorOrEncoded.getError());

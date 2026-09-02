@@ -25,6 +25,9 @@ public final class ItemEncodingModel extends Model {
     @Persisted
     public final Storage<Boolean> shareItemName = new Storage<>(true);
 
+    @Persisted
+    public final Storage<Boolean> shareItemRolls = new Storage<>(true);
+
     // Encoded data consists of characters from Unicode Supplementary Private Use Area-A and B
     // (U+F0000..U+FFFFD and U+100000..U+10FFFD)
     private static final String RANGE_A =
