@@ -6,6 +6,7 @@ package com.wynntils.models.items.encoding.impl.item;
 
 import com.wynntils.models.elements.type.Element;
 import com.wynntils.models.elements.type.Powder;
+import com.wynntils.models.elements.type.Skill;
 import com.wynntils.models.gear.type.GearAttackSpeed;
 import com.wynntils.models.gear.type.GearInstanceRequirements;
 import com.wynntils.models.gear.type.GearRequirements;
@@ -35,6 +36,7 @@ import com.wynntils.utils.type.RangedValue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 public class CraftedGearItemTransformer extends ItemTransformer<CraftedGearItem> {
     @Override
@@ -139,6 +141,23 @@ public class CraftedGearItemTransformer extends ItemTransformer<CraftedGearItem>
     @Override
     protected List<ItemData> encodeItem(CraftedGearItem item, EncodingSettings encodingSettings) {
         List<ItemData> dataList = new ArrayList<>();
+
+        if (!encodingSettings.shareItemRolls()) {
+            dataList.add(new CustomGearTypeData(item.getGearType()));
+            dataList.add(new DurabilityData(100, new CappedValue(1, 1)));
+
+            var skills = new ArrayList<Pair<Skill, Integer>>();
+
+            skills.add(new Pair<>(Skill.STRENGTH, 0));
+            skills.add(new Pair<>(Skill.DEXTERITY, 0));
+            skills.add(new Pair<>(Skill.INTELLIGENCE, 0));
+            skills.add(new Pair<>(Skill.DEFENCE, 0));
+            skills.add(new Pair<>(Skill.AGILITY, 0));
+
+            dataList.add(new RequirementsData(new GearRequirements(1, Optional.empty(), skills, Optional.empty())));
+
+            return dataList;
+        }
 
         // Required blocks
         dataList.add(new CustomGearTypeData(item.getGearType()));

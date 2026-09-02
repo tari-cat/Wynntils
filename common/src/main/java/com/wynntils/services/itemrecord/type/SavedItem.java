@@ -32,7 +32,7 @@ public record SavedItem(String base64, Set<String> categories, ItemStack itemSta
     // This is the encoding settings used to encode the item when it was saved
     // We cannot let users not save extended identification and share item name as it would break the item if the API
     // changes
-    private static final EncodingSettings SAVED_ITEM_ENCODING_SETTINGS = new EncodingSettings(true, true);
+    private static final EncodingSettings SAVED_ITEM_ENCODING_SETTINGS = new EncodingSettings(true, true, true);
 
     public static SavedItem create(WynnItem wynnItem, Set<String> categories, ItemStack itemStack) {
         ErrorOr<EncodedByteBuffer> errorOrEncodedByteBuffer =

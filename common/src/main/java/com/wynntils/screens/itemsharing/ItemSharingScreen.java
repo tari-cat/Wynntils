@@ -133,7 +133,7 @@ public final class ItemSharingScreen extends WynntilsScreen {
     private void refreshPreview() {
         // Encode the item with the selected settings
         EncodingSettings encodingSettings = new EncodingSettings(
-                Models.ItemEncoding.extendedIdentificationEncoding.get(), Models.ItemEncoding.shareItemName.get());
+                Models.ItemEncoding.extendedIdentificationEncoding.get(), Models.ItemEncoding.shareItemName.get(), Models.ItemEncoding.shareItemRolls.get());
         ErrorOr<EncodedByteBuffer> errorOrEncodedByteBuffer =
                 Models.ItemEncoding.encodeItem(wynnItem, encodingSettings);
         if (errorOrEncodedByteBuffer.hasError()) {
@@ -254,6 +254,24 @@ public final class ItemSharingScreen extends WynntilsScreen {
                     ComponentUtils.wrapTooltips(
                             List.of(Component.translatable("screens.wynntils.itemSharing.itemName.description")),
                             150))));
+        }
+
+        if (wynnItem instanceof CraftedItemProperty) {
+            options.add(this.addRenderableWidget(new WynntilsCheckbox(
+                    backgroundX + 120,
+                    backgroundY + 25,
+                    10,
+                    Component.translatable("screens.wynntils.itemSharing.itemRolls.name"),
+                    Models.ItemEncoding.shareItemRolls.get(),
+                    Texture.ITEM_SHARING_BACKGROUND.width() - 30,
+                    (c, b) -> {
+                        Models.ItemEncoding.shareItemRolls.store(b);
+                        refreshPreview();
+                    },
+                    ComponentUtils.wrapTooltips(
+                            List.of(Component.translatable("screens.wynntils.itemSharing.itemRolls.description")),
+                            150))));
+
         }
         // endregion
 
